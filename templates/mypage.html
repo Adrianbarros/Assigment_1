@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Assigmen_1_a</title>
+	<h1  align="center">Adrian Barros</h1>
+</head>
+<body>
+	
+
+
+	<img src="https://www.joomlasrilanka.com/wp-content/uploads/2017/04/web-design-package-details-on-screen.jpg" width="50%" height="50%"><br>
+
+	<h3>Education</h3><br>
+		<li>Computer Science Associates at <a href="http://www.citytech.cuny.edu/">New York City College of Technology</a> </li>
+		<li>Computer Science Bachelors at  <a href="https://hunter.cuny.edu/">Hunter College</a></li>
+	<h3>Experince</h3>
+		<li>Intern at <a href="https://www.noaa.gov/">NOAA CREST</a></li>
+		<li>Reasearch Experience at <a href="http://www.citytech.cuny.edu/">New York City College of Technology</a> </li>
+	<h3>Iterests</h3>
+		<li><a href="https://www.scnsoft.com/blog-pictures/business-intelligence/real-time-big-data-analytics-01_1.png">Data Analitics</a></li>
+		<li><a href="https://www.electronicdesign.com/sites/electronicdesign.com/files/styles/article_featured_standard/public/TI_Software_Promo.jpg?itok=Jl1V0PV2">Software Development</a></li>
+		<li><a href="https://www.internationalstudent.com/study-game-design/what-is-game-design/">Game Desing</a></li>
+	
+
+	
+	<h3>To-do List</h3>
+	<form action="{{ url_for('handle_data') }}" method="post">
+    <input type="text" name="projectFilepath">
+    <input type="submit" value="add to-do">
+	</form>
+
+{% for todo in todos %}
+	<li>
+	{% if todo.completed == true %}
+	<strike>{{todo.name}}</strike>
+	{% else %}	
+	{{todo.name}}
+	{% endif %}
+	</li>
+{% endfor %}	
+	
+	
+	</body>
+</html>
