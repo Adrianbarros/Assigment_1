@@ -82,16 +82,16 @@ def create_item():
                              '<a href="/login">Home</a>')
     requests.post(_url('todo-item'), cookies=cookies, json={'content': newItem})
     return make_response("Item successfully created. " '<a href="/login">Home</a>')
-
+#shows all the items
 @app.route("/get_items")
 def get_items():
     cookies= request.cookies
     resp =requests.get(_url('todo-item'), cookies=cookies)
-    return render_template('list.html',resp=data)
-    # return resp.text
+    #return render_template('list.html',resp=data)
+    return resp.text
 
 
-
+#changes an Item on the list
 @app.route("/change_item", methods=['POST'])
 def change_item():
     cookies = request.cookies
