@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>These are all your tasks</h1>
+{% for todo in todos %}
+<li>
+    {% if todo['completed'] == true %}
+    <strike>{{todo[content]}}</strike>
+    {% else %}
+    {{todo['content']}}
+    {% endif %}
+</li>
+{% endfor %}
+<form action="{{ url_for('login') }}">
+        <input type="submit" value="home" style="height:100px; width:100px"/>
+    </form>
+</body>
+</html>
